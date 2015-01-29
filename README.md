@@ -114,7 +114,7 @@ You can genearte model on an exsiting project.
             <td>?start3&end=5&package=v11</td>
             <td>Return the chart data in json type</td>
             <td> </td>
-        <tr>
+        </tr>
     </tbody>
 </table>
 
