@@ -1,0 +1,200 @@
+{
+  "moduleName": "reportModule",
+  "modelName": "statistic",
+  "filter_type": "multi-dropdown",
+  "charts": [
+    {
+      "type": "line",
+      "title": "Monthly Average Temperature (Basic Line/Spline Chart)",
+      "yAxis": [
+        {
+          "title": {
+            "text": "Temperature(°C)"
+          }
+        }
+      ],
+      "series": [
+        {
+          "index": 1,
+          "name": "Tokyo"
+        },
+        {
+          "index": 2,
+          "name": "London"
+        }
+      ]
+    },
+    {
+      "title": "Country Distribution(Basic Column Chart)",
+      "type": "column",
+      "yAxis": [
+        {
+          "title": {
+            "text":"active"
+          },
+          "min": 10000,
+          "max": 150000
+        },
+        {
+          "title": {
+            "text": "launch"
+          },
+          "min": 100000,
+          "max": 20000000,
+          "opposite": true
+        }
+      ],
+      "series": [
+        {
+          "index": 1,
+          "name": "active",
+          "yAxis": 0
+        },
+        {
+          "index": 2,
+          "name": "launch",
+          "yAxis": 1
+        }
+      ]
+    },
+    {
+      "title": "Historic World Population by Region(Basic Bar Chart)",
+      "type": "bar",
+      "yAxis": [
+        {
+          "min": 0,
+          "title": {
+            "text": "Population (millions)",
+            "align": "high"
+          },
+          "labels": {
+            "overflow": "justify"
+          }
+        }
+      ],
+      "series": [
+        {
+          "index": 1,
+          "name": "Year 1800"
+        },
+        {
+          "index": 2,
+          "name": "Year 1900"
+        },
+        {
+          "index": 3,
+          "name": "Year 2000"
+        }
+      ]
+    },
+    {
+      "title": "Android APP KPI (Datetime Line Chart)",
+      "type": "line",
+      "xAxis": {
+        "type": "datetime",
+        "dateTimeLabelFormats": {
+          "month": "%e. %b",
+          "year": "%b"
+        },
+        "title": {
+          "text": "Date"
+        }
+      },
+      "yAxis": [
+        {
+          "title": {
+            "text":"DNU"
+          },
+          "min": 60000,
+          "max": 71000
+        },
+        {
+          "title": {
+            "text": "DAU"
+          },
+          "min": 2300000,
+          "max": 2350000,
+          "opposite": true
+        }
+      ],
+      "series": [
+        {
+          "index": 1,
+          "name": "New Users",
+          "suffix": "s",
+          "yAxis": 0
+        },
+        {
+          "index": 2,
+          "name": "Active Users",
+          "suffix": "s",
+          "yAxis": 1
+        }
+      ]
+    },
+    {
+      "title": "Ads income(Datetime Area Chart)",
+      "type": "area",
+      "xAxis": {
+        "type": "datetime",
+        "dateTimeLabelFormats": {
+          "month": "%e. %b",
+          "year": "%b"
+        },
+        "title": {
+          "text": "Date"
+        }
+      },
+      "yAxis": [{
+        "title": {
+            "text":"US dollars"
+          },
+        "min": 0
+      }],
+      "series": [{
+        "index": 1,
+        "name": "income of ads",
+        "prefix": "$",
+        "suffix": "m"
+      }]
+    },
+    {
+      "title": "Average Monthly Temperature and Rainfall in Shanghai(Dual axes, Line and Column Chart)",
+      "yAxis":[
+        {
+          "title": {
+            "text": "Temperature",
+          },
+          "labels": {
+            "format": "{value}°C"
+          }
+        },
+        {
+          "title": {
+            "text": "Rainfall",
+          },
+          "labels": {
+            "format": "{value} mm"
+          },
+          "opposite": true
+        }
+      ],
+      "series": [
+        {
+          "index": 1,
+          "name": "Rainfall",
+          "type": "column",
+          "suffix": "mm",
+          "yAxis": 1
+        },
+        {
+          "index": 2,
+          "name": "Temperature",
+          "type": "spline",
+          "suffix": "°C",
+          "yAxis": 0
+        }
+      ]
+    }
+  ]
+}

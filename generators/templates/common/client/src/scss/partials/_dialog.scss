@@ -1,0 +1,58 @@
+/**reset**/
+.modal-content{
+  border-radius: 0;
+}
+.dialog-cancel{
+  float: right;
+  color: $borderColor;
+}
+.modal-dialog{
+  margin-top: 150px;
+}
+
+.form-module-select{
+  .btn{
+    margin:0;
+  }
+  .btn, input {
+    border-radius:0;
+  }
+}
+/**dialog**/
+.btn.create-trans-btn{
+  float: right;
+  margin: 0;
+}
+.modal-title {
+  font-size: 16px;
+  color: $fontColor;
+  font-weight: bold;
+}
+
+.modal-header {
+  padding: 11px;
+  background: #efefef;
+}
+.tree-row{
+  border-color:$borderColor;
+}
+
+.modal-footer {
+  background: #efefef;
+  padding: 18px;
+  button{
+    &:nth-child(1){
+      @include buttonStyle(wButton);
+    }
+    &:nth-child(2){
+      @include buttonStyle(bButton);
+    }
+  }
+}
+
+.form-horizontal button{
+    @include buttonStyle(bButton);
+}
+.form-horizontal>hr {
+  margin:20px 0 30px;
+}

@@ -1,0 +1,111 @@
+<div class="list-wrap">
+  <div class="list-top clearfix">
+  <% if(!list_actions || _.indexOf(list_actions, 'add') > -1){ %>
+    <button ng-show="!isPopup()" class="btn btn-success right" ng-click="add<%= capitalModelName%>()">Add <%= capitalModelName%></button>
+  <% } %>
+    <div class="filter-wrap left">
+    <% if(list_filter_type=='cascade-dropdown'){ %>
+      <cascade-dropdown selected-model="selectOptions" select-name="selectName" on-selected="filter(node, isInit)"></cascade-dropdown>
+    <% } else if(list_filter_type=='multi-dropdown'){ %>
+      <dp-multi-dropdown selected-model="selectOptions" on-selected="filter(node, isInit)"></dp-multi-dropdown>
+    <% } %>
+    </div>
+  <% if(!search_field || search_field!=false){ %>
+    <div class="search-wrap left">
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control" type="text" ng-model="search.string">
+          <span class="glyphicon glyphicon-search form-control-feedback" ng-disabled="isLoading" ng-click="goSearch()"></span>
+        </div>
+      </div>
+    </div>
+  <% } %>
+  </div>
+  <div class="list-middle clearfix">
+    <div class="list-middle-left left">
+    <% if(!list_actions || _.indexOf(list_actions, 'delete') > -1){ %>
+      <button ng-show="!isPopup()" class="btn btn-default" ng-click="delete()">delete</button>
+    <% } %>
+      <span class="list-total-checked">{{listTotal}}中{{listChecked.length}}被选</span>
+    </div>
+    <div class="list-middle-right">
+    <% if(list_datepicker){ %>
+      <div class="list-datepicker">
+        <div class="date-selected">
+          <span class="input-group date-picker-select">
+            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="datePicker.start.dt" max-date="datePicker.end.dt" is-open="datePicker.start.opened" show-button-bar="false" ng-required="true"/>
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="open($event, datePicker.start)"> <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </span>
+          <label  class="date-picker-text">—</label>
+          <span class="input-group date-picker-select end-date">
+            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="datePicker.end.dt" min-date="datePicker.start.dt" max-date="datePicker.end.max" is-open="datePicker.end.opened" show-button-bar="false" ng-required="true"/>
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="open($event, datePicker.end)"> <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    <% } %>
+    </div>
+  </div>
+  <div class="list-content" cc-loading-layer="!<%=camelModelName%>TableParams.settings().$loading">
+    <div ng-show="!<%=camelModelName%>TableParams.settings().$loading && items && !items.length" class="no-data">The list is empty, nothing to do！</div>
+    <table ng-table="<%=camelModelName%>TableParams" class="table table-bordered trans-table" template-pagination="app/layouts/pagination.html">
+      <thead>
+        <tr>
+          <th width="50" header="'ng-table/headers/checkbox.html'">
+            <input type="checkbox" id="select_all" ng-model="checkboxes.checked" />
+          </th>
+        <% _.forEach(modelColumn, function(column){ %>
+          <th><%= column.alias %></th>
+        <% }); %>
+        <% if(list_table_actions && list_table_actions.length > 0){ %>
+          <th>Actions</th>
+        <% } %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in items">
+          <td width="50" header="'ng-table/headers/checkbox.html'" class="str-checkbox">
+            <input type="checkbox" ng-model="checkboxes.items[item.id]" />
+          </td>
+      <% _.forEach(modelColumn, function(column){ %>
+        <% if(_.indexOf(list_display_link, column.name) > -1){ %>
+          <td><a ng-click="edit(item)">{{item.<%= column.name %>}}</a></td>
+        <% }else if(_.indexOf(modelEditList, column.name) > -1){ %>
+          <td width="20%">
+            <div class="form-control" ng-model="item.<%= column.name %>" contenteditable ></div>
+          </td>
+        <% }else{ %>
+          <td>{{item.<%= column.name %>}}</td>
+        <% } %>
+      <% }); %>
+      <% if(list_table_actions && list_table_actions.length > 0){ %>
+          <td data-title="'Actions'" class="list-table-actions-col">
+            <% _.forEach(list_table_actions, function(tableAction){ %>
+              <a href="" class="btn btn-default left" ng-click="<%= tableAction %>(item)"><%= tableAction %></a>
+            <% }) %>
+          </td>
+      <% } %>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-footer-btn-wrap left">
+    <% if(modelEditList.length > 0){ %>
+      <button class="btn btn-primary right" ng-click="saveAll()">Save All</button>
+    <% } %>
+    </div>
+    <span class="list-total">共{{listTotal}}条数据</span>
+    <script type="text/ng-template" id="ng-table/headers/checkbox.html">
+    <input type = "checkbox"
+      ng-model = "checkboxes.checked"
+      id = "select_all"
+      name = "filter-checkbox"
+      value = "" / >
+    </script>
+  </div>
+</div>

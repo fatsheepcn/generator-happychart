@@ -1,0 +1,74 @@
+a:hover{
+  cursor: pointer;
+}
+.btn-group .btn{
+  margin: 0;
+}
+.btn.search-btn{
+  &:hover, &:active{
+    i{
+      color: #fff;
+    }
+  }
+}
+
+.btn-default{
+  color: #666;
+}
+.btn-success{
+  background-color: $btnColor;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active{
+  background-color: $btnColor;
+  border-color: #4cae4c;
+  color: #fff;
+}
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open>.dropdown-toggle.btn-success{
+  background-color: #18a367;
+}
+
+//dialog close btn style
+// .glyphicon.glyphicon-remove:hover{
+//   color: #2a6496;
+// }
+.glyphicon-remove{
+  &:hover{
+    color: $btnColor;
+  }
+}
+
+//list page date picker widget
+.list-datepicker{
+  float: right;
+  .date-picker-text {
+    float: left;
+    margin: 6px 12px 6px 6px;
+  }
+  .date-picker-select{
+    float: left;
+    width: 160px;
+  }
+}
+
+
+//edit page reference icon
+.col-sm-6{
+  position: relative;
+}
+.ref-icon.glyphicon{
+  position: absolute;
+  right: -25px;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+.ref-btn-wrap{
+  display: inline-block;
+  line-height: 34px;
+  .glyphicon{
+    width: 28px;
+    line-height: 34px;
+    text-align: center;
+  }
+}

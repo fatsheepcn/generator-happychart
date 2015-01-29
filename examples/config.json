@@ -1,0 +1,9 @@
+{
+  "appName": "SampleApp",
+  "defaultState": "videos.movie",
+  "defaultEnv": "development",
+  "releaseBaseUrl": "/admin",
+  "releaseDomain": "http://yourdomain.com",
+  "developmentBaseUrl": "/admin",
+  "developmentDomain": "http://localhost:8008"
+}
