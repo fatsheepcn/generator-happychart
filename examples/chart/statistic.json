@@ -159,11 +159,21 @@
       }]
     },
     {
+      "title": "Version Distribution(Pie Chart)",
+      "type": "pie",
+      "series": [
+        {
+          "index": 1,
+          "name": "share"
+        }
+      ]
+    },
+    {
       "title": "Average Monthly Temperature and Rainfall in Shanghai(Dual axes, Line and Column Chart)",
       "yAxis":[
         {
           "title": {
-            "text": "Temperature",
+            "text": "Temperature"
           },
           "labels": {
             "format": "{value}°C"
@@ -171,7 +181,7 @@
         },
         {
           "title": {
-            "text": "Rainfall",
+            "text": "Rainfall"
           },
           "labels": {
             "format": "{value} mm"
