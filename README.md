@@ -98,24 +98,20 @@ You can genearte model on an exsiting project.
 - Chart API standard
 
 <table>
-    <th>
-        <tr>
-            <td>API</td>
-            <td>HTTP Method</td>
-            <td>Parameters</td>
-            <td>Result</td>
-            <td>Description</td>
-        </tr>
-    </th>
-    <tbody>
-        <tr>
-            <td>http://domain.com/baseurl/entries/chart</td>
-            <td>GET</td>
-            <td>?start3&end=5&package=v11</td>
-            <td>Return the chart data in json type</td>
-            <td> </td>
-        </tr>
-    </tbody>
+    <tr>
+        <td>API</td>
+        <td>HTTP Method</td>
+        <td>Parameters</td>
+        <td>Result</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <td>http://domain.com/baseurl/entries/chart</td>
+        <td>GET</td>
+        <td>?start3&end=5&package=v11</td>
+        <td>Return the chart data in json type</td>
+        <td> </td>
+    </tr>
 </table>
 
 - Returned data description
