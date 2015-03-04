@@ -30,7 +30,7 @@
 ### Install Dependencies
 - Yeoman: `npm install -g yo`
 - bower: `npm install -g bower`
-- generator-happychart: `npm install -g generator`
+- generator-happychart: `npm install -g generator-happychart`
 
 ### Start Project
 - Edit or copy generator-happychart/examples/config.json and chart, config directories into your working space.
